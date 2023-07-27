@@ -41,7 +41,7 @@ RUN yarn tsc
 # RUN yarn --cwd packages/backend backstage-cli backend:bundle --build-dependencies
 RUN yarn --cwd packages/backend build
 
-RUN mkdir packages/backend/dist/skeleton packages/backend/dist/bundle \
+RUN mkdir -p packages/backend/dist/skeleton packages/backend/dist/bundle \
     && tar xzf packages/backend/dist/skeleton.tar.gz -C packages/backend/dist/skeleton \
     && tar xzf packages/backend/dist/bundle.tar.gz -C packages/backend/dist/bundle
 
