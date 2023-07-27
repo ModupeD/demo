@@ -38,7 +38,7 @@ RUN --mount=type=cache,target=/home/node/.cache/yarn,sharing=locked,uid=1000,gid
 COPY --chown=node:node . .
 
 RUN yarn tsc
-# RUN yarn --cwd packages/backend backstage-cli backend:bundle --build-dependencies
+#RUN yarn --cwd packages/backend backstage-cli backend:bundle --build-dependencies
 RUN yarn --cwd packages/backend build
 
 RUN mkdir -p packages/backend/dist/skeleton packages/backend/dist/bundle \
@@ -78,7 +78,7 @@ RUN --mount=type=cache,target=/home/node/.cache/yarn,sharing=locked,uid=1000,gid
 # Copy the built packages from the build stage
 COPY --from=build --chown=node:node /app/packages/backend/dist/bundle/ ./
 
-COPY --chown=node:node app-config.yaml app-config.heroku.yaml ./
+COPY --chown=node:node app-config.yaml ./
 
 ENV PORT 7000
 ENV NODE_ENV production
