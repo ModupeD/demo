@@ -96,4 +96,4 @@ ENV APP_CONFIG_backend_baseUrl "https://demo.backstage.io"
 ENV APP_CONFIG_auth_environment "production"
 ENV NODE_OPTIONS "--max-old-space-size=400"
 
-CMD ["node", "packages/backend", "--config", "app-config.yaml", "--config", "app-config.heroku.yaml"]
+CMD ["node", "packages/backend", "--config", "app-config.yaml", "--config"]
